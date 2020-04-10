@@ -1,0 +1,26 @@
+
+Solution:
+
+mkdir -p  A/{B/{D/{I,J/L},E/H/L},C/{F/H/L,G/K/L}}
+ ls
+ tree A
+ 
+ 
+Output:
+
+A
+├── B
+│   ├── D
+│   │   ├── I
+│   │   └── J
+│   │       └── L
+│   └── E
+│       └── H
+│           └── L
+└── C
+    ├── F
+    │   └── H
+    │       └── L
+    └── G
+        └── K
+            └── L
