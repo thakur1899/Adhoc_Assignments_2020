@@ -1,0 +1,54 @@
+#Task 1
+
+mkdir -p  A/{B/{D/{I,J/L},E/H/L},C/{F/H/L,G/K/L}}
+ ls
+ tree A
+ 
+ #Task 2
+ 
+date
+sudo -i
+date
+which date
+chmod a-x bin/date
+ls -al bin/date
+date
+exit
+whoami
+date
+sudo su
+useradd -s bin/date k1
+su - k1
+setfacl -m u:k1:rwx bin/date
+su - k1
+chmod a-x bin/date
+ 
+ 
+#Task 3
+
+adduser jack
+adduser mack
+su - jack
+mkdir doc1
+cd doc1
+touch hello.txt
+ls
+exit
+su - mack
+mkdir doc2
+cd doc2
+touch hey.txt
+ls
+exit
+su - jack
+cp -r /home/mack/DIRECTORY /home/jack/
+ls
+
+#Task 4
+
+watch -n10 cal> cal.txt
+
+
+
+
+ 
