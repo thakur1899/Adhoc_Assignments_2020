@@ -1,0 +1,75 @@
+#TASK 1
+        Creating 100 containers,25 each of alpine, fedora, centos, java. And the conatiner must run forever until it is stopped
+
+import os
+
+os.system("sudo docker pull alpine")
+os.system("sudo docker pull fedora")
+os.system("sudo docker pull centos")
+os.system("sudo docker pull java")
+for i in range(1,26):
+    os.system('sudo docker run -dit --restart unless-stopped --name adhocnw{} alpine ifconfig'.format(i) )
+
+for i in range(26,51):
+   os.system('sudo docker run -dit --restart unless-stopped --name adhocnw{} fedora ls'.format(i) )
+
+for i in range(51,75):
+    os.system('sudo docker run -dit --restart unless-stopped --name adhocnw{} centos ls'.format(i) )
+
+for i in range(75,101):
+    os.system('sudo docker run -dit --restart unless-stopped --name adhocnw{} java'.format(i) )
+
+os.system("sudo docker ps")
+
+==========================================================================================================================
+
+#TASK 2
+        Write command to store NAMES and CREATED of a conatiner in a text file.
+
+
+docker ps -a --format "table {{.Names}}\t{{.CreatedAt}}" > container_list.txt
+cat container_list.txt
+
+
+
+===========================================================================================================================
+
+
+#TASK 3:
+  
+  
+#dockerfile
+        
+FROM ubuntu
+
+MAINTAINER mohini mohini@gmail.com 
+
+
+RUN  apt update && apt install -y firefox
+
+
+CMD ["/usr/bin/firefox"]
+
+#command line 
+
+        sudo docker build -t customimg:v1 .
+        sudo docker images
+        sudo docker run -it --env="DISPLAY" --net=host customimg:v1
+
+               
+        
+ ===========================================================================================================================
+ 
+ 
+ TASK 4:
+        Write command to store RAM & CPU consumption of a conatiner in a text file.
+
+ 
+ 
+docker stats --all --no-stream --format "table {{.Name}}\t{{.CPUPerc}}\t{{.MemUsage}}\t{{.MemPerc}}" > Container_resources.txt
+
+cat Container_resources.txt
+
+
+
+
